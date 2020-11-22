@@ -8,9 +8,10 @@
                 <table>
                     <tr class="tab-content" v-for="match in matches" :key="match.match_id">
                         <td width="20%">
-                            <h3>{{ match.format_str }}</h3>
-                            <p>{{ match.venue.name }}</p>
-                            <p>{{ match.date_start }}</p>
+                            <h3> {{ match.competition.status }} {{ match.subtitle }}</h3>
+                            <p>{{ match.venue.name }}
+                            <br>
+                            {{new Date(match.date_start).getHours()}}:{{new Date(match.date_start).getMinutes()}}</p>
                         </td>
                         <td width="22%">
                             <h3>{{ match.teama.name }}</h3>
@@ -30,7 +31,7 @@
                             <p>{{ match.teamb.scores_full }}</p>
                         </td>
                         <td width="18%">
-                            <h5>{{ match.date_start }}</h5>
+                            <h5>{{ match.date_start | date }}</h5>
                         </td>
                     </tr>
                 </table>
@@ -39,28 +40,28 @@
             <tab :isSelected="selected === 'Result'">
                 <div class="row">
                 <table>
-                    <tr class="tab-content" v-for="match in matches" :key="match.match_id">
+                    <tr class="tab-content" v-for="result in results" :key="result.match_id">
                         <td width="20%">
-                            <h3>{{ match.teama.name }}</h3>
-                            <p>{{ match.teama.scores_full }}</p>
+                            <h3>{{ result.teama.name }}</h3>
+                            <p>{{ result.teama.scores_full }}</p>
                         </td>
                         <td width="15%">
-                            <img class="result-team-logo" :src="match.teamb.logo_url">
+                            <img class="result-team-logo" :src="result.teama.logo_url">
                         </td>
                         <td width="25%">
-                            <h3>{{ match.format_str }}</h3>
-                            <p>{{ match.venue.name }}</p>
-                            <p>{{ match.date_start }}</p>
+                            <h3>{{ result.subtitle }}</h3>
+                            <p>{{ result.venue.name }}</p>
+                            <p>{{ result.date_start }}</p>
                         </td>
                         <td width="15%">
-                            <img class="result-team-logo" :src="match.teamb.logo_url">
+                            <img class="result-team-logo" :src="result.teamb.logo_url">
                         </td>
                         <td width="20%">
-                            <h3>{{ match.teamb.name }}</h3>
-                            <p>{{ match.teamb.scores_full }}</p>
+                            <h3>{{ result.teamb.name }}</h3>
+                            <p>{{ result.teamb.scores_full }}</p>
                         </td>
                         <td width="5%">
-                            arrow
+                            <i class="fa fa-arrow-circle-right"></i>
                         </td>
                     </tr>
                 </table>
@@ -94,7 +95,6 @@
 </style>
 <script>
 
-var token = '437214169d9be2a73e91d22f76f68b52';
     export default {
         data() {
             return {
@@ -105,10 +105,13 @@ var token = '437214169d9be2a73e91d22f76f68b52';
         },
         mounted() {
 
+                axios.get('https://rest.entitysport.com/v2/matches/?status=1&token=437214169d9be2a73e91d22f76f68b52')
+                .then(response =>{
+                    this.matches = response.data.response.items;
+                });
                 axios.get('https://rest.entitysport.com/v2/matches/?status=2&token=437214169d9be2a73e91d22f76f68b52')
                 .then(response =>{
-                    console.log(response.data.response.items)
-                    this.matches = response.data.response.items;
+                    this.results = response.data.response.items;
                 });
         },
         methods: {

@@ -2002,7 +2002,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var token = '437214169d9be2a73e91d22f76f68b52';
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2014,9 +2014,11 @@ var token = '437214169d9be2a73e91d22f76f68b52';
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('https://rest.entitysport.com/v2/matches/?status=2&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
-      console.log(response.data.response.items);
+    axios.get('https://rest.entitysport.com/v2/matches/?status=1&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
       _this.matches = response.data.response.items;
+    });
+    axios.get('https://rest.entitysport.com/v2/matches/?status=2&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
+      _this.results = response.data.response.items;
     });
   },
   methods: {
@@ -2128,6 +2130,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6683,7 +6696,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.main[data-v-000e9ce8]{\n    background-color: #f2f1f1;\n}\n.nav-tabs[data-v-000e9ce8]{\n    padding: 0 30px 0 30px;\n}\n.nav-link[data-v-000e9ce8]{\n    position: relative;\n    padding: 10px 20px 10px 20px;\n    border-radius: 10px 10px 0 0;\n    background-color: #006442;\n    color: white;\n    cursor: pointer;\n}\n.active[data-v-000e9ce8]{\n    position: relative !important;\n    display: block;\n    padding: 10px 30px 10px 30px !important;\n    background-color: white;\n    color: black;\n}\n", ""]);
+exports.push([module.i, "\n.main[data-v-000e9ce8]{\n    background-color: #f2f1f1;\n}\n.nav-tabs[data-v-000e9ce8]{\n    padding: 0 30px 0 30px;\n    border: none;\n}\n.nav-link[data-v-000e9ce8]{\n    position: relative;\n    padding: 10px 20px 10px 20px;\n    margin-bottom: 5px;\n    border-radius: 10px 10px 0 0;\n    background-color: #006442;\n    color: white;\n    cursor: pointer;\n    border-bottom: none;\n    transition:         color 1s;\n}\n.active[data-v-000e9ce8]{\n\n    position: relative !important;\n    margin: 0;\n    display: block;\n    padding: 10px 30px 15px 30px !important;\n    background-color: white;\n    color: black;\n}\n", ""]);
 
 // exports
 
@@ -38596,11 +38609,32 @@ var render = function() {
                         { key: match.match_id, staticClass: "tab-content" },
                         [
                           _c("td", { attrs: { width: "20%" } }, [
-                            _c("h3", [_vm._v(_vm._s(match.format_str))]),
+                            _c("h3", [
+                              _vm._v(
+                                " " +
+                                  _vm._s(match.competition.status) +
+                                  " " +
+                                  _vm._s(match.subtitle)
+                              )
+                            ]),
                             _vm._v(" "),
-                            _c("p", [_vm._v(_vm._s(match.venue.name))]),
-                            _vm._v(" "),
-                            _c("p", [_vm._v(_vm._s(match.date_start))])
+                            _c("p", [
+                              _vm._v(
+                                _vm._s(match.venue.name) +
+                                  "\n                            "
+                              ),
+                              _c("br"),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(
+                                    new Date(match.date_start).getHours()
+                                  ) +
+                                  ":" +
+                                  _vm._s(
+                                    new Date(match.date_start).getMinutes()
+                                  )
+                              )
+                            ])
                           ]),
                           _vm._v(" "),
                           _c("td", { attrs: { width: "22%" } }, [
@@ -38634,7 +38668,9 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("td", { attrs: { width: "18%" } }, [
-                            _c("h5", [_vm._v(_vm._s(match.date_start))])
+                            _c("h5", [
+                              _vm._v(_vm._s(_vm._f("date")(match.date_start)))
+                            ])
                           ])
                         ]
                       )
@@ -38649,49 +38685,47 @@ var render = function() {
               _c("div", { staticClass: "row" }, [
                 _c(
                   "table",
-                  _vm._l(_vm.matches, function(match) {
+                  _vm._l(_vm.results, function(result) {
                     return _c(
                       "tr",
-                      { key: match.match_id, staticClass: "tab-content" },
+                      { key: result.match_id, staticClass: "tab-content" },
                       [
                         _c("td", { attrs: { width: "20%" } }, [
-                          _c("h3", [_vm._v(_vm._s(match.teama.name))]),
+                          _c("h3", [_vm._v(_vm._s(result.teama.name))]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(match.teama.scores_full))])
+                          _c("p", [_vm._v(_vm._s(result.teama.scores_full))])
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "15%" } }, [
                           _c("img", {
                             staticClass: "result-team-logo",
-                            attrs: { src: match.teamb.logo_url }
+                            attrs: { src: result.teama.logo_url }
                           })
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "25%" } }, [
-                          _c("h3", [_vm._v(_vm._s(match.format_str))]),
+                          _c("h3", [_vm._v(_vm._s(result.subtitle))]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(match.venue.name))]),
+                          _c("p", [_vm._v(_vm._s(result.venue.name))]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(match.date_start))])
+                          _c("p", [_vm._v(_vm._s(result.date_start))])
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "15%" } }, [
                           _c("img", {
                             staticClass: "result-team-logo",
-                            attrs: { src: match.teamb.logo_url }
+                            attrs: { src: result.teamb.logo_url }
                           })
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "20%" } }, [
-                          _c("h3", [_vm._v(_vm._s(match.teamb.name))]),
+                          _c("h3", [_vm._v(_vm._s(result.teamb.name))]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(match.teamb.scores_full))])
+                          _c("p", [_vm._v(_vm._s(result.teamb.scores_full))])
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "5%" } }, [
-                          _vm._v(
-                            "\n                            arrow\n                        "
-                          )
+                          _c("i", { staticClass: "fa fa-arrow-circle-right" })
                         ])
                       ]
                     )
@@ -51024,12 +51058,17 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _dateFilter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dateFilter */ "./resources/js/dateFilter.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+Vue.filter('date', _dateFilter__WEBPACK_IMPORTED_MODULE_0__["default"]);
 Vue.component('main-app', __webpack_require__(/*! ./components/MainApp.vue */ "./resources/js/components/MainApp.vue")["default"]);
 Vue.component('tabs-menu', __webpack_require__(/*! ./components/TabsMenu.vue */ "./resources/js/components/TabsMenu.vue")["default"]);
 Vue.component('tab', __webpack_require__(/*! ./components/Tab.vue */ "./resources/js/components/Tab.vue")["default"]);
@@ -51429,6 +51468,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TabsMenu_vue_vue_type_template_id_000e9ce8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/dateFilter.js":
+/*!************************************!*\
+  !*** ./resources/js/dateFilter.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (value) {
+  var date = new Date(value);
+  var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][date.getMonth()];
+  return month + " " + date.getDate() + ", " + date.getFullYear();
+});
 
 /***/ }),
 
