@@ -14,5 +14,5 @@ export default (value)=>{
         "Nov",
         "Dec",
     ][date.getMonth()];
-    return month + " " + date.getDate() + ", " + date.getFullYear();
+    return date.getDate() + " " + month +  ", " + date.getFullYear();
 }

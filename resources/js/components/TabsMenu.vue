@@ -1,6 +1,6 @@
 <template>
-<div class=" ">
-    <div class="container main">
+<div class="">
+    <div class="container py-3 main">
         <ul class="nav nav-tabs">
             <li v-for="tab in tabs" :key="tab" class="nav-item">
                 <a class="nav-link" :class="{active: tab === selected}" @click="setTab(tab)">
@@ -36,15 +36,14 @@
     transition:         color 1s;
 }
 .active{
-
+    transform: scale(1.2);
     position: relative !important;
     margin: 0;
     display: block;
-    padding: 10px 30px 15px 30px !important;
-    background-color: white;
+    padding: 10px 30px 10px 30px !important;
+    background-color: white !important;
     color: black;
-
-
+    z-index: 1000;
 }
 </style>
 <script>
