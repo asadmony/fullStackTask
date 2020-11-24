@@ -1,12 +1,12 @@
 
 
-## Project Technologies
+## Application Technologies
 1. PHP Laravel Framework
 2. Vue.js
 3. Entity Sports application programming interfaces (API)
 
 
-## How to run this project
+## How to run this Application
 Php web server (XAMPP/WAMP) and Composer need to be installed on your system to run this application.
 Steps to run this project are:
 
