@@ -5,31 +5,33 @@
             <tab :isSelected="selected === 'Live & Upcoming'">
                 <div class="row">
                 <table>
-                    <tr class="tab-content" v-for="match in matches" :key="match.match_id" :class="{tbBorder: matches.length > 1 && match.match_id != matches[matches.length-1].match_id}">
+                    <tr class="tab-content" v-for="match in matches" :key="match.match_id" :class="{tbBorder: match.status == 3}">
                         <td width="23%">
-                            <h5 class="matchname text-left"> <span class="status" :class="{liveStatus: getStatus(match.date_start,match.end_start) == 'Live'}"> {{ getStatus(match.date_start,match.end_start) }} </span>  {{ match.subtitle }}</h5>
-                            <p class="venue" :class="getStatus(match.date_start,match.end_start)">
+                            <h5 class="matchname text-left"> <span class="status" :class="{liveStatus: match.status == 3}"> {{ getStatus(match.status) }} </span>  {{ match.subtitle }}</h5>
+                            <p class="venue" :class="getStatus(match.status)">
                             {{ match.venue.name }}, {{ match.venue.location }}
                             <br>
                             {{new Date(match.date_start).getUTCHours()}}:{{new Date(match.date_start).getUTCMinutes()}} Local Time</p>
                         </td>
                         <td width="22%">
                             <h4 class="team">{{ match.teama.name }}</h4>
+                            <p v-if="match.teama.scores_full">{{ match.teama.scores_full }}</p>
                         </td>
                         <td  width="9%">
                             <img class="rounded team-logo" :src="match.teama.logo_url">
                         </td>
                         <td width="3%">
-                            <h2 class="vs" :class="getStatus(match.date_start,match.end_start)">VS</h2>
+                            <h2 class="vs" :class="getStatus(match.status)">VS</h2>
                         </td>
                         <td width="9%">
                             <img class="rounded team-logo" :src="match.teamb.logo_url">
                         </td>
                         <td width="22%">
                             <h4 class="team">{{ match.teamb.name }}</h4>
+                            <p v-if="match.teamb.scores_full">{{ match.teamb.scores_full }}</p>
                         </td>
                         <td width="12%">
-                            <p class="date" :class="getStatus(match.date_start,match.end_start)">
+                            <p class="date" :class="getStatus(match.status)">
                                 {{ match.date_start | date }}
                             </p>
                         </td>
@@ -172,29 +174,37 @@
                 selected: 'Live & Upcoming',
                 matches: [],
                 results: [],
+                lives : [],
             }
         },
         mounted() {
-
+            // this.interval = setInterval(() => {
                 axios.get('https://rest.entitysport.com/v2/matches/?status=1&token=437214169d9be2a73e91d22f76f68b52')
                 .then(response =>{
                     this.matches = response.data.response.items;
                 });
+                axios.get('https://rest.entitysport.com/v2/matches/?status=3&token=437214169d9be2a73e91d22f76f68b52')
+                .then(response =>{
+                    console.log(this.matches)
+                    response.data.response.items.forEach(element => {
+                    this.matches.unshift(element);
+                    });
+                });
+
+            // }, 30000 );
                 axios.get('https://rest.entitysport.com/v2/matches/?status=2&token=437214169d9be2a73e91d22f76f68b52')
                 .then(response =>{
                     this.results = response.data.response.items;
                 });
         },
+        computed: {
+        },
         methods: {
             setSelected(tab) {
                 this.selected = tab
             },
-            getStatus(start,end){
-                var startDate = new Date(start)
-                console.log(startDate.getTimezoneOffset())
-                var endDate = new Date(end)
-                var now = new Date()
-                if(startDate.getFullYear() == now.getFullYear() && startDate.getMonth() == now.getMonth() && startDate.getDate() == now.getDate() && startDate.getHours() <= now.getHours() && endDate.getHours() >= now.getHours() && startDate.getMinutes() <= now.getMinutes() && endDate.getMinutes() >= now.getMinutes()){
+            getStatus(value){
+                if(value == 3){
                     return 'Live';
                 }else{
                     return 'Upcoming';

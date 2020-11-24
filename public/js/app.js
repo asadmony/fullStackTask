@@ -2074,35 +2074,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       selected: 'Live & Upcoming',
       matches: [],
-      results: []
+      results: [],
+      lives: []
     };
   },
   mounted: function mounted() {
     var _this = this;
 
+    // this.interval = setInterval(() => {
     axios.get('https://rest.entitysport.com/v2/matches/?status=1&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
       _this.matches = response.data.response.items;
     });
+    axios.get('https://rest.entitysport.com/v2/matches/?status=3&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
+      console.log(_this.matches);
+      response.data.response.items.forEach(function (element) {
+        _this.matches.unshift(element);
+      });
+    }); // }, 30000 );
+
     axios.get('https://rest.entitysport.com/v2/matches/?status=2&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
       _this.results = response.data.response.items;
     });
   },
+  computed: {},
   methods: {
     setSelected: function setSelected(tab) {
       this.selected = tab;
     },
-    getStatus: function getStatus(start, end) {
-      var startDate = new Date(start);
-      console.log(startDate.getTimezoneOffset());
-      var endDate = new Date(end);
-      var now = new Date();
-
-      if (startDate.getFullYear() == now.getFullYear() && startDate.getMonth() == now.getMonth() && startDate.getDate() == now.getDate() && startDate.getHours() <= now.getHours() && endDate.getHours() >= now.getHours() && startDate.getMinutes() <= now.getMinutes() && endDate.getMinutes() >= now.getMinutes()) {
+    getStatus: function getStatus(value) {
+      if (value == 3) {
         return 'Live';
       } else {
         return 'Upcoming';
@@ -38582,12 +38589,7 @@ var render = function() {
                         {
                           key: match.match_id,
                           staticClass: "tab-content",
-                          class: {
-                            tbBorder:
-                              _vm.matches.length > 1 &&
-                              match.match_id !=
-                                _vm.matches[_vm.matches.length - 1].match_id
-                          }
+                          class: { tbBorder: match.status == 3 }
                         },
                         [
                           _c("td", { attrs: { width: "23%" } }, [
@@ -38596,23 +38598,12 @@ var render = function() {
                                 "span",
                                 {
                                   staticClass: "status",
-                                  class: {
-                                    liveStatus:
-                                      _vm.getStatus(
-                                        match.date_start,
-                                        match.end_start
-                                      ) == "Live"
-                                  }
+                                  class: { liveStatus: match.status == 3 }
                                 },
                                 [
                                   _vm._v(
                                     " " +
-                                      _vm._s(
-                                        _vm.getStatus(
-                                          match.date_start,
-                                          match.end_start
-                                        )
-                                      ) +
+                                      _vm._s(_vm.getStatus(match.status)) +
                                       " "
                                   )
                                 ]
@@ -38624,10 +38615,7 @@ var render = function() {
                               "p",
                               {
                                 staticClass: "venue",
-                                class: _vm.getStatus(
-                                  match.date_start,
-                                  match.end_start
-                                )
+                                class: _vm.getStatus(match.status)
                               },
                               [
                                 _vm._v(
@@ -38656,7 +38644,13 @@ var render = function() {
                           _c("td", { attrs: { width: "22%" } }, [
                             _c("h4", { staticClass: "team" }, [
                               _vm._v(_vm._s(match.teama.name))
-                            ])
+                            ]),
+                            _vm._v(" "),
+                            match.teama.scores_full
+                              ? _c("p", [
+                                  _vm._v(_vm._s(match.teama.scores_full))
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("td", { attrs: { width: "9%" } }, [
@@ -38671,10 +38665,7 @@ var render = function() {
                               "h2",
                               {
                                 staticClass: "vs",
-                                class: _vm.getStatus(
-                                  match.date_start,
-                                  match.end_start
-                                )
+                                class: _vm.getStatus(match.status)
                               },
                               [_vm._v("VS")]
                             )
@@ -38690,7 +38681,13 @@ var render = function() {
                           _c("td", { attrs: { width: "22%" } }, [
                             _c("h4", { staticClass: "team" }, [
                               _vm._v(_vm._s(match.teamb.name))
-                            ])
+                            ]),
+                            _vm._v(" "),
+                            match.teamb.scores_full
+                              ? _c("p", [
+                                  _vm._v(_vm._s(match.teamb.scores_full))
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("td", { attrs: { width: "12%" } }, [
@@ -38698,10 +38695,7 @@ var render = function() {
                               "p",
                               {
                                 staticClass: "date",
-                                class: _vm.getStatus(
-                                  match.date_start,
-                                  match.end_start
-                                )
+                                class: _vm.getStatus(match.status)
                               },
                               [
                                 _vm._v(
