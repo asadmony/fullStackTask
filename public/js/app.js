@@ -2074,8 +2074,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2085,7 +2083,7 @@ __webpack_require__.r(__webpack_exports__);
       lives: []
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
     // this.interval = setInterval(() => {
@@ -2093,7 +2091,6 @@ __webpack_require__.r(__webpack_exports__);
       _this.matches = response.data.response.items;
     });
     axios.get('https://rest.entitysport.com/v2/matches/?status=3&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
-      console.log(_this.matches);
       response.data.response.items.forEach(function (element) {
         _this.matches.unshift(element);
       });
@@ -2103,7 +2100,20 @@ __webpack_require__.r(__webpack_exports__);
       _this.results = response.data.response.items;
     });
   },
-  computed: {},
+  mounted: function mounted() {
+    var _this2 = this;
+
+    this.interval = setInterval(function () {
+      axios.get('https://rest.entitysport.com/v2/matches/?status=3&token=437214169d9be2a73e91d22f76f68b52').then(function (response) {
+        var i = 0;
+        response.data.response.items.forEach(function (element) {
+          _this2.matches[i].teama.scores_full = element.teama.scores_full;
+          _this2.matches[i].teamb.scores_full = element.teamb.scores_full;
+          i++;
+        });
+      });
+    }, 6000);
+  },
   methods: {
     setSelected: function setSelected(tab) {
       this.selected = tab;
@@ -6668,7 +6678,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tab-content[data-v-736a0b0d]{\n    display: block;\n    padding: 10px 0 15px 0;\n    height: 130px;\n}\n.tbBorder[data-v-736a0b0d]{\n    border-bottom: 1px solid #e0e0e0;\n}\n.tab-content > td[data-v-736a0b0d] {\n    text-align: center;\n    position: relative;\n    padding: 10px 0 10px 0;\n}\n.matchname[data-v-736a0b0d]{\n    margin-left: 10px;\n    font-weight: 700;\n    font-size: 12px;\n}\n.status[data-v-736a0b0d]{\n    font-size: 10pt;\n    background-color: #006442;\n    font-weight: 700;\n    color: #fff;\n    padding: 6px 10px 7px 10px ;\n    border-radius: 10px;\n    position: relative;\n    z-index: 1;\n    margin: 0 10px 0 10px;\n}\n.status[data-v-736a0b0d]::before{\n    content: \"\";\n    position: absolute;\n    left: -10px;\n    top: -5px;\n    width: 40px;\n    height: 40px;\n    background: #006442;\n    border-radius: 50%;\n    z-index: -1;\n}\n.liveStatus[data-v-736a0b0d]{\n    margin-top: 10px;\n    background-color: #F26B23 !important;\n}\n.liveStatus[data-v-736a0b0d]::before{\n    background-color: #F26B23  !important;\n    top: -6px !important;\n}\n.venue[data-v-736a0b0d]{\n    font-size: 9pt;\n    padding: 5px 40px 0 40px;\n}\n.team[data-v-736a0b0d]{\n    font-weight: 700;\n    padding: 0 10px 0 10px;\n}\n.team-logo[data-v-736a0b0d]{\n    max-width: 60px;\n    max-height: 60px;\n}\n.vs[data-v-736a0b0d]{\n    font-weight: 700;\n}\n.result-team-logo[data-v-736a0b0d]{\n    max-width: 80px;\n    max-height: 80px;\n}\n.date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n}\n.live-date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n    color: #F26B23\n}\n.Live[data-v-736a0b0d]{\n    color: #F26B23;\n}\n.Upcoming[data-v-736a0b0d]{\n    color: #006442;\n}\n.arrow[data-v-736a0b0d]{\n    color: #1892ed;\n}\n.hr[data-v-736a0b0d] {\n    border-bottom: 2px solid #006442;\n}\n", ""]);
+exports.push([module.i, "\n.tab-content[data-v-736a0b0d]{\n    display: block;\n    padding: 10px 0 15px 0;\n    height: 130px;\n}\n.tbBorder[data-v-736a0b0d]{\n    border-bottom: 1px solid #e0e0e0;\n}\n.tab-content > td[data-v-736a0b0d] {\n    text-align: center;\n    position: relative;\n    padding: 10px 0 10px 0;\n}\n.matchname[data-v-736a0b0d]{\n    margin-left: 10px;\n    font-weight: 700;\n    font-size: 12px;\n}\n.status[data-v-736a0b0d]{\n    font-size: 10pt;\n    background-color: #006442;\n    font-weight: 700;\n    color: #fff;\n    padding: 6px 10px 8px 10px ;\n    border-radius: 10px;\n    position: relative;\n    z-index: 1;\n    margin: 0 10px 0 10px;\n}\n.status[data-v-736a0b0d]::before{\n    content: \"\";\n    position: absolute;\n    left: -10px;\n    top: -5px;\n    width: 40px;\n    height: 40px;\n    background: #006442;\n    border-radius: 50%;\n    z-index: -1;\n}\n.liveStatus[data-v-736a0b0d]{\n    margin-top: 10px;\n    background-color: #F26B23 !important;\n}\n.liveStatus[data-v-736a0b0d]::before{\n    background-color: #F26B23  !important;\n    top: -5px !important;\n}\n.venue[data-v-736a0b0d]{\n    font-size: 9pt;\n    padding: 5px 40px 0 40px;\n}\n.team[data-v-736a0b0d]{\n    font-weight: 700;\n    padding: 0 10px 0 10px;\n}\n.team-logo[data-v-736a0b0d]{\n    max-width: 60px;\n    max-height: 60px;\n}\n.vs[data-v-736a0b0d]{\n    font-weight: 700;\n}\n.result-team-logo[data-v-736a0b0d]{\n    max-width: 80px;\n    max-height: 80px;\n}\n.date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n}\n.live-date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n    color: #F26B23\n}\n.Live[data-v-736a0b0d]{\n    color: #F26B23;\n}\n.Upcoming[data-v-736a0b0d]{\n    color: #006442;\n}\n.arrow[data-v-736a0b0d]{\n    color: #1892ed;\n}\n.hr[data-v-736a0b0d] {\n    border-bottom: 2px solid #006442;\n}\n", ""]);
 
 // exports
 
@@ -38588,8 +38598,14 @@ var render = function() {
                         "tr",
                         {
                           key: match.match_id,
-                          staticClass: "tab-content",
-                          class: { tbBorder: match.status == 3 }
+                          staticClass:
+                            "tab-content  d-flex flex-row justify-content-between",
+                          class: {
+                            tbBorder:
+                              _vm.matches.length > 1 &&
+                              match.match_id !=
+                                _vm.matches[_vm.matches.length - 1].match_id
+                          }
                         },
                         [
                           _c("td", { attrs: { width: "23%" } }, [
@@ -38619,15 +38635,15 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(match.venue.name) +
                                     ", " +
                                     _vm._s(match.venue.location) +
-                                    "\n                            "
+                                    "\n                                "
                                 ),
                                 _c("br"),
                                 _vm._v(
-                                  "\n                            " +
+                                  "\n                                " +
                                     _vm._s(
                                       new Date(match.date_start).getUTCHours()
                                     ) +
@@ -38699,9 +38715,9 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                                " +
+                                  "\n                                    " +
                                     _vm._s(_vm._f("date")(match.date_start)) +
-                                    "\n                            "
+                                    "\n                                "
                                 )
                               ]
                             )
@@ -38731,7 +38747,8 @@ var render = function() {
                       "tr",
                       {
                         key: result.match_id,
-                        staticClass: "tab-content",
+                        staticClass:
+                          "tab-content d-flex flex-row justify-content-between",
                         class: {
                           tbBorder:
                             _vm.results.length > 1 &&
@@ -38772,7 +38789,7 @@ var render = function() {
                             ),
                             _c("br"),
                             _vm._v(
-                              "\n                            " +
+                              "\n                                " +
                                 _vm._s(result.status_note)
                             )
                           ])
@@ -51078,11 +51095,13 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dateFilter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dateFilter */ "./resources/js/dateFilter.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //importing date filter
+
 
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.filter('date', _dateFilter__WEBPACK_IMPORTED_MODULE_0__["default"]);
+Vue.filter('date', _dateFilter__WEBPACK_IMPORTED_MODULE_0__["default"]); // components
+
 Vue.component('main-app', __webpack_require__(/*! ./components/MainApp.vue */ "./resources/js/components/MainApp.vue")["default"]);
 Vue.component('tabs-menu', __webpack_require__(/*! ./components/TabsMenu.vue */ "./resources/js/components/TabsMenu.vue")["default"]);
 Vue.component('tab', __webpack_require__(/*! ./components/Tab.vue */ "./resources/js/components/Tab.vue")["default"]);
