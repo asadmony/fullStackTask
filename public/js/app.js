@@ -2072,8 +2072,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6678,7 +6676,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tab-content[data-v-736a0b0d]{\n    display: block;\n    padding: 10px 0 15px 0;\n    height: 130px;\n}\n.tbBorder[data-v-736a0b0d]{\n    border-bottom: 1px solid #e0e0e0;\n}\n.tab-content > td[data-v-736a0b0d] {\n    text-align: center;\n    position: relative;\n    padding: 10px 0 10px 0;\n}\n.matchname[data-v-736a0b0d]{\n    margin-left: 10px;\n    font-weight: 700;\n    font-size: 12px;\n}\n.status[data-v-736a0b0d]{\n    font-size: 10pt;\n    background-color: #006442;\n    font-weight: 700;\n    color: #fff;\n    padding: 6px 10px 8px 10px ;\n    border-radius: 10px;\n    position: relative;\n    z-index: 1;\n    margin: 0 10px 0 10px;\n}\n.status[data-v-736a0b0d]::before{\n    content: \"\";\n    position: absolute;\n    left: -10px;\n    top: -5px;\n    width: 40px;\n    height: 40px;\n    background: #006442;\n    border-radius: 50%;\n    z-index: -1;\n}\n.liveStatus[data-v-736a0b0d]{\n    margin-top: 10px;\n    background-color: #F26B23 !important;\n}\n.liveStatus[data-v-736a0b0d]::before{\n    background-color: #F26B23  !important;\n    top: -5px !important;\n}\n.venue[data-v-736a0b0d]{\n    font-size: 9pt;\n    padding: 5px 40px 0 40px;\n}\n.team[data-v-736a0b0d]{\n    font-weight: 700;\n    padding: 0 10px 0 10px;\n}\n.team-logo[data-v-736a0b0d]{\n    max-width: 60px;\n    max-height: 60px;\n}\n.vs[data-v-736a0b0d]{\n    font-weight: 700;\n}\n.result-team-logo[data-v-736a0b0d]{\n    max-width: 80px;\n    max-height: 80px;\n}\n.date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n}\n.live-date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n    color: #F26B23\n}\n.Live[data-v-736a0b0d]{\n    color: #F26B23;\n}\n.Upcoming[data-v-736a0b0d]{\n    color: #006442;\n}\n.arrow[data-v-736a0b0d]{\n    color: #1892ed;\n}\n.hr[data-v-736a0b0d] {\n    border-bottom: 2px solid #006442;\n}\n", ""]);
+exports.push([module.i, "\n.tab-content[data-v-736a0b0d]{\n    padding: 10px 0 15px 0;\n    height: 130px;\n}\n.tbBorder[data-v-736a0b0d]{\n    border-bottom: 1px solid #e0e0e0;\n}\n.tab-content > td[data-v-736a0b0d] {\n    text-align: center;\n    padding: 10px 0 10px 0;\n}\n.matchname[data-v-736a0b0d]{\n    margin-left: 10px;\n    font-weight: 700;\n    font-size: 12px;\n}\n.status[data-v-736a0b0d]{\n    font-size: 10pt;\n    background-color: #006442;\n    font-weight: 700;\n    color: #fff;\n    padding: 6px 10px 8px 10px ;\n    border-radius: 10px;\n    position: relative;\n    z-index: 1;\n    margin: 0 10px 0 10px;\n}\n.status[data-v-736a0b0d]::before{\n    content: \"\";\n    position: absolute;\n    left: -10px;\n    top: -5px;\n    width: 40px;\n    height: 40px;\n    background: #006442;\n    border-radius: 50%;\n    z-index: -1;\n}\n.liveStatus[data-v-736a0b0d]{\n    margin-top: 10px;\n    background-color: #F26B23 !important;\n}\n.liveStatus[data-v-736a0b0d]::before{\n    background-color: #F26B23  !important;\n    top: -5px !important;\n}\n.venue[data-v-736a0b0d]{\n    font-size: 9pt;\n    padding: 5px 40px 0 40px;\n}\n.team[data-v-736a0b0d]{\n    font-weight: 700;\n    padding: 0 10px 0 10px;\n}\n.team-logo[data-v-736a0b0d]{\n    max-width: 60px;\n    max-height: 60px;\n}\n.vs[data-v-736a0b0d]{\n    font-weight: 700;\n}\n.result-team-logo[data-v-736a0b0d]{\n    max-width: 80px;\n    max-height: 80px;\n}\n.date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n}\n.live-date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n    color: #F26B23\n}\n.Live[data-v-736a0b0d]{\n    color: #F26B23;\n}\n.Upcoming[data-v-736a0b0d]{\n    color: #006442;\n}\n.arrow[data-v-736a0b0d]{\n    color: #1892ed;\n}\n.hr[data-v-736a0b0d] {\n    border-bottom: 2px solid #006442;\n}\n", ""]);
 
 // exports
 
@@ -38598,8 +38596,7 @@ var render = function() {
                         "tr",
                         {
                           key: match.match_id,
-                          staticClass:
-                            "tab-content  d-flex flex-row justify-content-between",
+                          staticClass: "tab-content",
                           class: {
                             tbBorder:
                               _vm.matches.length > 1 &&
@@ -38747,8 +38744,7 @@ var render = function() {
                       "tr",
                       {
                         key: result.match_id,
-                        staticClass:
-                          "tab-content d-flex flex-row justify-content-between",
+                        staticClass: "tab-content",
                         class: {
                           tbBorder:
                             _vm.results.length > 1 &&

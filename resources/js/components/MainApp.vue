@@ -5,7 +5,7 @@
             <tab :isSelected="selected === 'Live & Upcoming'">
                 <div class="row">
                     <table>
-                        <tr class="tab-content  d-flex flex-row justify-content-between" v-for="match in matches" :key="match.match_id" :class="{tbBorder: matches.length > 1 && match.match_id != matches[matches.length-1].match_id}">
+                        <tr class="tab-content" v-for="match in matches" :key="match.match_id" :class="{tbBorder: matches.length > 1 && match.match_id != matches[matches.length-1].match_id}">
                             <td width="23%">
                                 <h5 class="matchname text-left"> <span class="status" :class="{liveStatus: match.status == 3}"> {{ getStatus(match.status) }} </span>  {{ match.subtitle }}</h5>
                                 <p class="venue" :class="getStatus(match.status)">
@@ -43,7 +43,7 @@
             <tab :isSelected="selected === 'Result'">
                 <div class="row">
                     <table>
-                        <tr class="tab-content d-flex flex-row justify-content-between"  v-for="result in results" :key="result.match_id" :class="{tbBorder: results.length > 1 && result.match_id != results[results.length-1].match_id}">
+                        <tr class="tab-content" v-for="result in results" :key="result.match_id" :class="{tbBorder: results.length > 1 && result.match_id != results[results.length-1].match_id}">
                             <td width="20%">
                                 <h4 class="team">{{ result.teama.name }}</h4>
                                 <p>{{ result.teama.scores_full }}</p>
@@ -76,7 +76,6 @@
 </template>
 <style scoped>
 .tab-content{
-    display: block;
     padding: 10px 0 15px 0;
     height: 130px;
 }
@@ -85,7 +84,6 @@
 }
 .tab-content > td {
     text-align: center;
-    position: relative;
     padding: 10px 0 10px 0;
 }
 .matchname{
