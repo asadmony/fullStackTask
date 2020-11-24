@@ -2051,6 +2051,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2075,6 +2098,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getStatus: function getStatus(start, end) {
       var startDate = new Date(start);
+      console.log(startDate.getTimezoneOffset());
       var endDate = new Date(end);
       var now = new Date();
 
@@ -6637,7 +6661,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tab-content[data-v-736a0b0d]{\n    height: 100px;\n}\n.tab-content > td[data-v-736a0b0d] {\n    text-align: center;\n    position: relative;\n    padding: 10px 0 10px 0;\n}\n.status[data-v-736a0b0d]{\n    font-size: 12pt;\nbackground-color: #006442;\nfont-weight: 700;\ncolor: #fff;\npadding: 10px;\nborder-radius: 10px;\nposition: relative;\nz-index: 1;\nmargin: 0 10px 0 10px;\n}\n.status[data-v-736a0b0d]::before{\n    content: \"\";\nposition: absolute;\nleft: -10px;\ntop: -4px;\nwidth: 50px;\nheight: 50px;\nbackground: #006442;\nborder-radius: 50%;\nz-index: -1;\n}\n.live[data-v-736a0b0d]{\n    margin-left: 30%;\n    margin-top: 10px;\n    color: #F26B23;\n}\n.upcoming[data-v-736a0b0d]{\n    margin-left: 30%;\n    margin-top: 10px;\n    color: #006442;\n}\n.team[data-v-736a0b0d]{\n    font-weight: 700;\n}\n.team-logo[data-v-736a0b0d]{\n    max-width: 60px;\n    max-height: 60px;\n}\n.vs[data-v-736a0b0d]{\n    color: #F26B23;\n    font-weight: 700;\n}\n.result-team-logo[data-v-736a0b0d]{\n    max-width: 80px;\n    max-height: 80px;\n}\n.up-date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n    color: #006442;\n}\n.live-date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n    color: #F26B23\n}\n.hr[data-v-736a0b0d] {\n    border-bottom: 2px solid #006442;\n}\n", ""]);
+exports.push([module.i, "\n.tab-content[data-v-736a0b0d]{\n    display: block;\n    padding: 10px 0 15px 0;\n    height: 130px;\n}\n.tbBorder[data-v-736a0b0d]{\n    border-bottom: 1px solid #e0e0e0;\n}\n.tab-content > td[data-v-736a0b0d] {\n    text-align: center;\n    position: relative;\n    padding: 10px 0 10px 0;\n}\n.matchname[data-v-736a0b0d]{\n    margin-left: 10px;\n    font-weight: 700;\n    font-size: 12px;\n}\n.status[data-v-736a0b0d]{\n    font-size: 10pt;\n    background-color: #006442;\n    font-weight: 700;\n    color: #fff;\n    padding: 6px 10px 7px 10px ;\n    border-radius: 10px;\n    position: relative;\n    z-index: 1;\n    margin: 0 10px 0 10px;\n}\n.status[data-v-736a0b0d]::before{\n    content: \"\";\n    position: absolute;\n    left: -10px;\n    top: -5px;\n    width: 40px;\n    height: 40px;\n    background: #006442;\n    border-radius: 50%;\n    z-index: -1;\n}\n.liveStatus[data-v-736a0b0d]{\n    margin-top: 10px;\n    background-color: #F26B23 !important;\n}\n.liveStatus[data-v-736a0b0d]::before{\n    background-color: #F26B23  !important;\n    top: -6px !important;\n}\n.venue[data-v-736a0b0d]{\n    font-size: 9pt;\n    padding: 5px 40px 0 40px;\n}\n.team[data-v-736a0b0d]{\n    font-weight: 700;\n    padding: 0 10px 0 10px;\n}\n.team-logo[data-v-736a0b0d]{\n    max-width: 60px;\n    max-height: 60px;\n}\n.vs[data-v-736a0b0d]{\n    font-weight: 700;\n}\n.result-team-logo[data-v-736a0b0d]{\n    max-width: 80px;\n    max-height: 80px;\n}\n.date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n}\n.live-date[data-v-736a0b0d]{\n    font-weight: 700;\n    font-size: 15px;\n    color: #F26B23\n}\n.Live[data-v-736a0b0d]{\n    color: #F26B23;\n}\n.Upcoming[data-v-736a0b0d]{\n    color: #006442;\n}\n.arrow[data-v-736a0b0d]{\n    color: #1892ed;\n}\n.hr[data-v-736a0b0d] {\n    border-bottom: 2px solid #006442;\n}\n", ""]);
 
 // exports
 
@@ -6656,7 +6680,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tab-container{\n    padding: 10px 20px 10px 20px;\n    background-color: white;\n    border-radius: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.tab-container{\n    padding: 10px 15px 10px 15px;\n    background-color: white;\n    border-radius: 20px;\n}\n", ""]);
 
 // exports
 
@@ -6675,7 +6699,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.main[data-v-000e9ce8]{\n    background-color: #f2f1f1;\n}\n.nav-tabs[data-v-000e9ce8]{\n    padding: 0 30px 0 30px;\n    border: none;\n}\n.nav-link[data-v-000e9ce8]{\n    position: relative;\n    padding: 10px 20px 10px 20px;\n    margin-bottom: 5px;\n    border-radius: 10px 10px 0 0;\n    background-color: #006442;\n    color: white;\n    cursor: pointer;\n    border-bottom: none;\n    transition:         color 1s;\n}\n.active[data-v-000e9ce8]{\n    transform: scale(1.2);\n    position: relative !important;\n    margin: 0;\n    display: block;\n    padding: 10px 30px 10px 30px !important;\n    background-color: white !important;\n    color: black;\n    z-index: 1000;\n}\n", ""]);
+exports.push([module.i, "\n.main[data-v-000e9ce8]{\n    background-color: #f2f1f1;\n}\n.nav-tabs[data-v-000e9ce8]{\n    padding: 0 30px 0 100px;\n    border: none;\n}\n.nav-link[data-v-000e9ce8]{\n    position: relative;\n    padding: 10px 20px 10px 20px;\n    margin-bottom: 5px;\n    border-radius: 10px 10px 0 0;\n    background-color: #006442;\n    color: white;\n    cursor: pointer;\n    border-bottom: none;\n    transition:         color 1s;\n}\n.active[data-v-000e9ce8]{\n    transform: scale(1.2);\n    position: relative !important;\n    margin: 0;\n    display: block;\n    padding: 10px 30px 10px 30px !important;\n    background-color: white !important;\n    color: black;\n    z-index: 1000;\n}\n", ""]);
 
 // exports
 
@@ -38555,28 +38579,51 @@ var render = function() {
                     _vm._l(_vm.matches, function(match) {
                       return _c(
                         "tr",
-                        { key: match.match_id, staticClass: "tab-content" },
+                        {
+                          key: match.match_id,
+                          staticClass: "tab-content",
+                          class: {
+                            tbBorder:
+                              _vm.matches.length > 1 &&
+                              match.match_id !=
+                                _vm.matches[_vm.matches.length - 1].match_id
+                          }
+                        },
                         [
-                          _c("td", { attrs: { width: "20%" } }, [
-                            _c("h5", [
-                              _c("span", { staticClass: "status" }, [
-                                _vm._v(
-                                  " " +
-                                    _vm._s(
+                          _c("td", { attrs: { width: "23%" } }, [
+                            _c("h5", { staticClass: "matchname text-left" }, [
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "status",
+                                  class: {
+                                    liveStatus:
                                       _vm.getStatus(
                                         match.date_start,
                                         match.end_start
-                                      )
-                                    ) +
-                                    " "
-                                )
-                              ]),
+                                      ) == "Live"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    " " +
+                                      _vm._s(
+                                        _vm.getStatus(
+                                          match.date_start,
+                                          match.end_start
+                                        )
+                                      ) +
+                                      " "
+                                  )
+                                ]
+                              ),
                               _vm._v("  " + _vm._s(match.subtitle))
                             ]),
                             _vm._v(" "),
                             _c(
                               "p",
                               {
+                                staticClass: "venue",
                                 class: _vm.getStatus(
                                   match.date_start,
                                   match.end_start
@@ -38584,19 +38631,23 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  _vm._s(match.venue.name) +
+                                  "\n                            " +
+                                    _vm._s(match.venue.name) +
+                                    ", " +
+                                    _vm._s(match.venue.location) +
                                     "\n                            "
                                 ),
                                 _c("br"),
                                 _vm._v(
                                   "\n                            " +
                                     _vm._s(
-                                      new Date(match.date_start).getHours()
+                                      new Date(match.date_start).getUTCHours()
                                     ) +
                                     ":" +
                                     _vm._s(
-                                      new Date(match.date_start).getMinutes()
-                                    )
+                                      new Date(match.date_start).getUTCMinutes()
+                                    ) +
+                                    " Local Time"
                                 )
                               ]
                             )
@@ -38608,18 +38659,28 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
-                          _c("td", { attrs: { width: "8%" } }, [
+                          _c("td", { attrs: { width: "9%" } }, [
                             _c("img", {
                               staticClass: "rounded team-logo",
                               attrs: { src: match.teama.logo_url }
                             })
                           ]),
                           _vm._v(" "),
-                          _c("td", { attrs: { width: "2%" } }, [
-                            _c("h2", { staticClass: "vs" }, [_vm._v("VS")])
+                          _c("td", { attrs: { width: "3%" } }, [
+                            _c(
+                              "h2",
+                              {
+                                staticClass: "vs",
+                                class: _vm.getStatus(
+                                  match.date_start,
+                                  match.end_start
+                                )
+                              },
+                              [_vm._v("VS")]
+                            )
                           ]),
                           _vm._v(" "),
-                          _c("td", { attrs: { width: "8%" } }, [
+                          _c("td", { attrs: { width: "9%" } }, [
                             _c("img", {
                               staticClass: "rounded team-logo",
                               attrs: { src: match.teamb.logo_url }
@@ -38632,11 +38693,32 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
-                          _c("td", { attrs: { width: "18%" } }, [
-                            _c("p", { staticClass: "up-date" }, [
-                              _vm._v(_vm._s(_vm._f("date")(match.date_start)))
-                            ])
-                          ])
+                          _c("td", { attrs: { width: "12%" } }, [
+                            _c(
+                              "p",
+                              {
+                                staticClass: "date",
+                                class: _vm.getStatus(
+                                  match.date_start,
+                                  match.end_start
+                                )
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm._f("date")(match.date_start)) +
+                                    "\n                            "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", {
+                            staticStyle: {
+                              height: "3px",
+                              "background-color": "black"
+                            }
+                          })
                         ]
                       )
                     }),
@@ -38653,10 +38735,21 @@ var render = function() {
                   _vm._l(_vm.results, function(result) {
                     return _c(
                       "tr",
-                      { key: result.match_id, staticClass: "tab-content" },
+                      {
+                        key: result.match_id,
+                        staticClass: "tab-content",
+                        class: {
+                          tbBorder:
+                            _vm.results.length > 1 &&
+                            result.match_id !=
+                              _vm.results[_vm.results.length - 1].match_id
+                        }
+                      },
                       [
                         _c("td", { attrs: { width: "20%" } }, [
-                          _c("h3", [_vm._v(_vm._s(result.teama.name))]),
+                          _c("h4", { staticClass: "team" }, [
+                            _vm._v(_vm._s(result.teama.name))
+                          ]),
                           _vm._v(" "),
                           _c("p", [_vm._v(_vm._s(result.teama.scores_full))])
                         ]),
@@ -38669,11 +38762,26 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "25%" } }, [
-                          _c("h3", [_vm._v(_vm._s(result.subtitle))]),
+                          _c("h5", { staticClass: "matchname" }, [
+                            _vm._v(_vm._s(result.subtitle))
+                          ]),
                           _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(result.venue.name))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(result.date_start))])
+                          _c("p", [
+                            _vm._v(
+                              _vm._s(
+                                _vm._f("date")(new Date(result.date_start))
+                              ) +
+                                " - " +
+                                _vm._s(
+                                  _vm._f("date")(new Date(result.date_end))
+                                )
+                            ),
+                            _c("br"),
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(result.status_note)
+                            )
+                          ])
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "15%" } }, [
@@ -38684,14 +38792,18 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { width: "20%" } }, [
-                          _c("h3", [_vm._v(_vm._s(result.teamb.name))]),
+                          _c("h4", { staticClass: "team" }, [
+                            _vm._v(_vm._s(result.teamb.name))
+                          ]),
                           _vm._v(" "),
                           _c("p", [_vm._v(_vm._s(result.teamb.scores_full))])
                         ]),
                         _vm._v(" "),
-                        _c("td", { attrs: { width: "5%" } }, [
-                          _c("i", { staticClass: "fa fa-arrow-circle-right" })
-                        ])
+                        _c(
+                          "td",
+                          { staticClass: "arrow", attrs: { width: "5%" } },
+                          [_c("i", { staticClass: "fa fa-long-arrow-right" })]
+                        )
                       ]
                     )
                   }),

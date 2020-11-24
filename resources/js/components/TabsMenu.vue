@@ -17,7 +17,7 @@
     background-color: #f2f1f1;
 }
 .nav-tabs{
-    padding: 0 30px 0 30px;
+    padding: 0 30px 0 100px;
     border: none;
 }
 .nav-link{
