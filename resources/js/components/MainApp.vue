@@ -87,7 +87,7 @@
     padding: 10px 0 10px 0;
 }
 .matchname{
-    margin-left: 10px;
+    margin-left: 12px;
     font-weight: 700;
     font-size: 12px;
 }
@@ -122,7 +122,7 @@
     top: -5px !important;
 }
 .venue{
-    font-size: 9pt;
+    font-size: 13px;
     padding: 5px 40px 0 40px;
 }
 .team{
